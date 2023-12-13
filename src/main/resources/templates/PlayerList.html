@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<title>Players List</title>
+</head>
+
+<body>
+
+	<div>
+		<div class="outimg">
+			<div class="trophy">
+				<div class="row">
+
+					<div class="col-12 col-md-6 col-lg-6 pb-4">
+						<div class="w-100 d-flex align-items-center">
+							
+							<div class="vn-teamTitleODet ps-4 ms-4">
+								<h2></h2>
+
+								<div class="vn-trophyBtnout mt-3 mb-4">
+									<div class="vn-trophyBtn">
+										<img
+											src="https://www.iplt20.com/assets/images/team-trophy.png"
+											alt=""> <span></span>
+									</div>
+								</div>
+
+								<div class="vn-banShare">
+									
+									<div class="vn-socIcons d-none">
+										<a href="https://twitter.com/ChennaiIPL" target="blank"><i
+											class="fa fa-twitter social-black" aria-hidden="true"></i></a> <a
+											href="https://instagram.com/chennaiipl" target="blank"><i
+											class="fa fa-instagram social-black" aria-hidden="true"></i></a>
+										<a href=" https://www.facebook.com/TheChennaiSuperKings/"
+											target="blank"><i class="fa fa-facebook social-black"
+											aria-hidden="true"></i></a>
+									</div>
+
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-lg-6">
+						<div class="team-detail-text">
+							<p>
+								<span>Owner</span> <b>-</b>
+							</p>
+							<p>
+								<span>Coach</span> <b>-</b>
+							</p>
+							<p>
+								<span>Venue</span> <b>-</b>
+							</p>
+							<p>
+								<span>Captain</span> <b>-</b>
+							</p>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="dts"></div>
+		</div>
+	</div>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+
+				<th>Player Name</th>
+				<th>Roll</th>
+				<th>Auction Price</th>
+				<th>Nation</th>
+				<th>Team Name</th>
+				<th>Owner</th>
+				<th>Coach</th>
+				<th>Venue</th>
+				<th>captain</th>
+				<th>Trophy</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="player : ${players}">
+
+				<td th:text="${player.playerName}"></td>
+				<td th:text="${player.roll}"></td>
+				<td th:text="${player.auctionPrice}"></td>
+				<!--  <td th:text="${player.name}"></td>
+				<td th:text="${player.owner}"></td>
+				<td th:text="${player.coach}"></td>
+				<td th:text="${player.venue}"></td>
+				<td th:text="${player.captain}"></td>
+				<td th:text="${player.winyears}"></td>-->
+
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>

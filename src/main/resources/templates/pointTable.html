@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<title>Point Table</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light "
+		style="background-image: url('Images/header-curl-bg.svg'); background-repeat: repeat-x; background-size: 50%; background-color: rgb(49, 49, 161)">
+		<div class="container-fluid">
+			<a class="navbar-brand text-white" href="#"><img
+				src="Images/ipl-logo.png"
+				style="height: 50px; width: 95px; position: relative;"> </a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active text-white"
+						aria-current="page" href="/">HOME</a></li>
+					<li class="nav-item"><a class="nav-link text-white"
+						href="team">TEAM</a></li>
+					<li class="nav-item"><a class="nav-link text-white"
+						href="point_table">POINT TABLE</a></li>
+					<li class="nav-item"><a class="nav-link text-white" href="venue">VENUES</a>
+					</li>
+					<li class="nav-item"><a class="nav-link text-white" href="about">ABOUT
+							US</a></li>
+
+				</ul>
+				<div>
+					<form class="d-flex" role="search">
+						<input class="form-control me-2" type="search"
+							placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Search</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<table class="table">
+			<thead>
+				<tr>
+					
+					<th scope="col">POSITION</th>
+					<th scope="col">TEAM</th>
+					<th scope="col">PLAYED</th>
+					<th scope="col">WON</th>
+					<th scope="col">LOSS</th>
+					<th scope="col">NR</th>
+					<th scope="col">POINTS</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="p:${pointTable}">
+					<td th:text="${p.position}"></td>
+					<td th:text="${p.team}"></td>
+					<td th:text="${p.played}"></td>
+					<td th:text="${p.won}"></td>
+					<td th:text="${p.loss}"></td>
+					<td th:text="${p.nr}"></td>
+					<td th:text="${p.points}"></td>
+				</tr>
+				
+
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

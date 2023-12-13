@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<title>Teams</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light "
+		style="background-image: url('Images/header-curl-bg.svg'); background-repeat: repeat-x; background-size: 50%; background-color: rgb(49, 49, 161)">
+		<div class="container-fluid">
+			<a class="navbar-brand text-white" href="#"><img
+				src="Images/ipl-logo.png"
+				style="height: 50px; width: 95px; position: relative;"> </a>
+			<button class="navbar-toggler text-white" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon text-white color-white"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active text-white"
+						aria-current="page" href="/">HOME</a></li>
+					<li class="nav-item"><a class="nav-link text-white"
+						href="team">TEAM</a></li>
+					<li class="nav-item"><a class="nav-link text-white"
+						href="point_table">POINT TABLE</a></li>
+					<li class="nav-item"><a class="nav-link text-white"
+						href="venue">VENUES</a></li>
+					<li class="nav-item"><a class="nav-link text-white"
+						href="about">ABOUT US</a></li>
+
+				</ul>
+				<div>
+					<form class="d-flex" role="search">
+						<input class="form-control me-2" type="search"
+							placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Search</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid ">
+		<div class="container ">
+			<div class="row">
+				<div class="col-3" style="background-color: yellow;">
+					<img class="img-fluid" src="Images/CSKoutline.png">
+					<a href="get-csk-players">CSK</a>
+				</div>
+				<div class="col-3" style="background-color: #00d9ff;">
+					<img class="img-fluid" src="Images/GToutline.png"> <a
+						href="gt_players">GT</a>
+				</div>
+				<div class="col-3" style="background-color: red;">
+					<img class="img-fluid" src="Images/RCBoutline.png"> <a
+						href="rcb_players">RCB</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3" style="background-color: blue;">
+					<img class="img-fluid" src="Images/MIoutline.png"> <a
+						href="mi_players">MI</a>
+				</div>
+				<div class="col-3">
+					<img class="img-fluid" src="Images/SRHoutline.png"> <a
+						href="srh_players">SRH</a>
+				</div>
+				<div class="col-3">
+					<img class="img-fluid" src="Images/RRoutline.png"> <a
+						href="rr_players">RR</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<img class="img-fluid" src="Images/LSGoutline.png"> <a
+						href="lsg_players">LSG</a>
+				</div>
+				<div class="col-3">
+					<img class="img-fluid" src="Images/PBKSoutline.png"> <a
+						href="pk_players">PK</a>
+				</div>
+				<div class="col-3">
+					<img class="img-fluid" src="Images/KKRoutline.png">
+					<a href="kkr_players">KKR</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<img class="img-fluid" src="Images/DCoutline.png"> <a
+						href="dc_players">DC</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
