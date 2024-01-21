@@ -21,10 +21,5 @@ public class CskPlayersService {
 		return list;
 	}
 	
-	public List<Object> getCskPlayersWithJoin(){
-		List<Object> list= repository.getCskDetails();
-		
-		return list;
-	}
 	
 }

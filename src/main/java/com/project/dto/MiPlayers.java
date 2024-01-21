@@ -13,7 +13,7 @@ public class MiPlayers {
 	private int id;
 	private String playerName;
 	private String roll;
-	private String auctionPrice;
+	
 	private String nation;
 	@ManyToOne  //many miPlayer To One Team
 	Teams teams;
@@ -41,11 +41,12 @@ public class MiPlayers {
 	public void setRoll(String roll) {
 		this.roll = roll;
 	}
-	public String getAuctionPrice() {
-		return auctionPrice;
+	
+	public Teams getTeams() {
+		return teams;
 	}
-	public void setAuctionPrice(String auctionPrice) {
-		this.auctionPrice= auctionPrice;
+	public void setTeams(Teams teams) {
+		this.teams = teams;
 	}
 	
 }

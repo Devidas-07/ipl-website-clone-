@@ -13,9 +13,9 @@ public class DcPlayers {
 	private int id;
 	private String playerName;
 	private String roll;
-	private String auctionPrice;
+	
 	private String nation;
-	@ManyToOne  //many CskPlayer To One Team
+	@ManyToOne  //many DC player To One Team
 	Teams teams;
 	
 	
@@ -50,11 +50,6 @@ public class DcPlayers {
 	public void setRoll(String roll) {
 		this.roll = roll;
 	}
-	public String getAuctionPrice() {
-		return auctionPrice;
-	}
-	public void setAuctionPrice(String auctionPrice) {
-		this.auctionPrice= auctionPrice;
-	}
+	
 	
 }

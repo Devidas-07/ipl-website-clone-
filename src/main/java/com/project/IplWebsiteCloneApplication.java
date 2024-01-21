@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import com.project.controller.MiPlayersController;
 import com.project.service.PointTableService;
 
 @SpringBootApplication
@@ -14,7 +15,8 @@ public class IplWebsiteCloneApplication {
 		ConfigurableApplicationContext ctx=SpringApplication.run(IplWebsiteCloneApplication.class, args);
 		PointTableService s= ctx.getBean(PointTableService.class);
 		s.getPointTable();
-		
+		MiPlayersController m=ctx.getBean(MiPlayersController.class);
+		m.getMiTeamDetails();
 	}
 
 }

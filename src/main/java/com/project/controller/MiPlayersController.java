@@ -13,12 +13,10 @@ import com.project.dto.MiPlayers;
 import com.project.service.MiPlayersService;
 
 @Controller
+
 public class MiPlayersController {
 	@Autowired
 	MiPlayersService miplayersservice;
-	
-	
-	
 	
 	@GetMapping("/mi_players")
 	public ModelAndView getMiPlayers() {
@@ -34,44 +32,17 @@ public class MiPlayersController {
 	@PostMapping("/add-players")
 	public String addMiPlayers(@ModelAttribute MiPlayers miPlayers) {
 		miplayersservice.save(miPlayers);
-		return "redirect:/mi_players";
+		return "redirect:/mi-team-details";
 	}
-	
-	
-	
-	
-//	@GetMapping("/mi_players")
-//	public ModelAndView getMiPlayers() {
-//		List<MiPlayers> list = miRepo.findAll();
-//		return new ModelAndView("miPlayerList", "players", list);
-//	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	@PostMapping("/addMiPlayersRest")
-//	public String addMiPlayers(@RequestBody MiPlayers miplayers) {
-//		miplayersservice.addMiPlayers(miplayers);
-//		return "player added succesfully";
+	@GetMapping("/mi-team-details")
+	public ModelAndView getMiTeamDetails() {
+		List<MiPlayers> list = miplayersservice.getMiPlayers();
+		return new ModelAndView("PlayerList","teams",list);
+	}
+//	@GetMapping("/mi-team-details")
+//	public List<MiPlayers> getMiTeamDetails() {
+//		List<MiPlayers> list = miplayersservice.getMiPlayers();
+//		return  list;
 //	}
 
 }

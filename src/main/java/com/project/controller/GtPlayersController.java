@@ -28,6 +28,6 @@ GtPlayersRepository repository;
 	@GetMapping("/get-gt-players")
 	public ModelAndView getGtPlayers() {
 		List<GtPlayers> list = repository.findAll();
-		return new ModelAndView("PlayersList","players",list);
+		return new ModelAndView("PlayersList","teams",list);
 	}
 }

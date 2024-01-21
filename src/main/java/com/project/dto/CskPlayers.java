@@ -13,7 +13,8 @@ public class CskPlayers {
 	private int id;
 	private String playerName;
 	private String roll;
-	private String auctionPrice;
+	private String image;
+	
 	private String nation;
 	@ManyToOne  //many CskPlayer To One Team
 	Teams teams;
@@ -50,11 +51,12 @@ public class CskPlayers {
 	public void setRoll(String roll) {
 		this.roll = roll;
 	}
-	public String getAuctionPrice() {
-		return auctionPrice;
+	public String getImage() {
+		return image;
 	}
-	public void setAuctionPrice(String auctionPrice) {
-		this.auctionPrice= auctionPrice;
+	public void setImage(String image) {
+		this.image = image;
 	}
+	
 	
 }
