@@ -1,21 +1,27 @@
 package com.project.dto;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "delhi_capitals")
 public class DcPlayers {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(nullable = false)
 	private String playerName;
+	@Column(nullable = false)
 	private String roll;
-	
+	@Column(nullable = false)
 	private String nation;
 	@ManyToOne  //many DC player To One Team
+	
 	Teams teams;
 	
 	

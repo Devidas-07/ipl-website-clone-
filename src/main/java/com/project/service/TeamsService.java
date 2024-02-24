@@ -1,5 +1,7 @@
 package com.project.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +15,8 @@ public class TeamsService {
 	
 	public void saveTeams(Teams teams) {
 		repository.save(teams);
+	}
+	public List<Teams> getTeams() {
+		return repository.findAll();
 	}
 }

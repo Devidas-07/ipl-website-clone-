@@ -7,16 +7,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
+
 public class CskPlayers {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String playerName;
+	
 	private String roll;
-	private String image;
+	
 	
 	private String nation;
 	@ManyToOne  //many CskPlayer To One Team
+	
 	Teams teams;
 	
 	
@@ -51,12 +55,7 @@ public class CskPlayers {
 	public void setRoll(String roll) {
 		this.roll = roll;
 	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
+	
 	
 	
 }

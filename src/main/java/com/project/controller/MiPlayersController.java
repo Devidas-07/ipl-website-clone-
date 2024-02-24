@@ -18,23 +18,24 @@ public class MiPlayersController {
 	@Autowired
 	MiPlayersService miplayersservice;
 	
-	@GetMapping("/mi_players")
+	/*@GetMapping("/mi_players")
 	public ModelAndView getMiPlayers() {
 		List<MiPlayers> list = miplayersservice.getMiPlayers();
 		return new ModelAndView("PlayerList", "players", list);
 	}
+	*/
 	
 	
-	@GetMapping("/add")
+	@GetMapping("/add-mi-players")
 	public String addMiPlayersForm() {
 		return "addMiPlayers";			
 	}
-	@PostMapping("/add-players")
+	@PostMapping("/save-mi-players")
 	public String addMiPlayers(@ModelAttribute MiPlayers miPlayers) {
 		miplayersservice.save(miPlayers);
 		return "redirect:/mi-team-details";
 	}
-	@GetMapping("/mi-team-details")
+	@GetMapping("/get-mi-details")
 	public ModelAndView getMiTeamDetails() {
 		List<MiPlayers> list = miplayersservice.getMiPlayers();
 		return new ModelAndView("PlayerList","teams",list);

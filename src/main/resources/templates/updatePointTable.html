@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<title>Update Point Table </title>
+</head>
+
+<body>
+	
+	<div class="container my-5 p-5" style="border:1px solid black;">
+		<form class="col-md-4 offset-md-4" th:action="@{/update-point-table}" method="post">
+			
+			<div class="mb-3">
+				<label for="pos" class="form-control">Position</label>
+				<input type="number" id="pos" class="form-control" name="position">
+			</div>
+			<div class="mb-3">
+				<label for="team" class="form-control">Team</label>
+				<input type="text" class="form-control" name="team">
+			</div>
+			
+			<div class="mb-3">
+				<label for="played_match" class="form-control">Played Match</label>
+				<input type="number" id="played_match" class="form-control" name="played">
+			</div>
+			<div class="mb-3">
+				<label for="won" class="form-control">Won</label>
+				<input type="number" id="won" class="form-control" name="won">
+			</div>
+			<div class="mb-3">
+				<label for="loss" class="form-control">Loss</label>
+				<input type="number" id="loss" class="form-control" name="loss">
+			</div>
+			<div class="mb-3">
+				<label for="net_run_rate" class="form-control">Points</label>
+				<input type="number" id="net_run_rate" class="form-control" name="nr" placeholder="">
+			</div>
+			<div class="mb-3">
+				<label for="points" class="form-control">Net Run Rate</label>
+				<input type="number" id="points" class="form-control" name="points" placeholder="">
+			</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+				
+			
+		</form>
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

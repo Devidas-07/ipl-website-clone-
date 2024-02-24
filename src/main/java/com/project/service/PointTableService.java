@@ -16,20 +16,13 @@ public class PointTableService {
 @Autowired
 PointTableRepository repo;
 	public List<PointTable> getPointTable(){
-		List<PointTable> list= repo.findAll();
-			/*for(PointTable p: list) {
-				
-				System.out.println(p.getTeam());
-			}
-			if(list==null) {
-				System.out.println("list is null");
-			}
-			else {
-				System.out.println("list is not null");
-			}*/
+		List<PointTable> list= repo.getPointTable_SQL();
+			
 		return list;
 	}
-	
+	public void updatePointTable(PointTable point) {
+		repo.save(point);
+	}
 	
 	
 }

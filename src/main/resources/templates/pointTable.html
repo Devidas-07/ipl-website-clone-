@@ -55,7 +55,7 @@
 			<thead>
 				<tr>
 					
-					<th scope="col">POSITION</th>
+					
 					<th scope="col">TEAM</th>
 					<th scope="col">PLAYED</th>
 					<th scope="col">WON</th>
@@ -66,13 +66,15 @@
 			</thead>
 			<tbody>
 				<tr th:each="p:${pointTable}">
-					<td th:text="${p.position}"></td>
+					
 					<td th:text="${p.team}"></td>
 					<td th:text="${p.played}"></td>
 					<td th:text="${p.won}"></td>
 					<td th:text="${p.loss}"></td>
 					<td th:text="${p.nr}"></td>
 					<td th:text="${p.points}"></td>
+					
+					
 				</tr>
 				
 

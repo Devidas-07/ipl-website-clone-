@@ -1,21 +1,27 @@
 package com.project.dto;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Punjab_Kings")
 public class PbksPlayers {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(nullable = false)
 	private String playerName;
+	@Column(nullable = false)
 	private String roll;
-	private String auctionPrice;
+	@Column(nullable = false)
 	private String nation;
-	@ManyToOne  //many CskPlayer To One Team
+	@ManyToOne  //many pk To One Team
+	
 	Teams teams;
 	
 	
@@ -50,11 +56,6 @@ public class PbksPlayers {
 	public void setRoll(String roll) {
 		this.roll = roll;
 	}
-	public String getAuctionPrice() {
-		return auctionPrice;
-	}
-	public void setAuctionPrice(String auctionPrice) {
-		this.auctionPrice= auctionPrice;
-	}
+	
 	
 }

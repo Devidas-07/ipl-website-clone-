@@ -13,6 +13,7 @@ import com.project.dto.GtPlayers;
 import com.project.repository.GtPlayersRepository;
 
 @Controller
+//@RestController
 public class GtPlayersController {
 @Autowired
 GtPlayersRepository repository;
@@ -23,11 +24,19 @@ GtPlayersRepository repository;
 	@PostMapping("/save-gt-players")
 	public String saveGtPlayers(@ModelAttribute GtPlayers players) {
 		repository.save(players);
-		return "saved";
+		return "redirect:/get-gt-details";
 	}
-	@GetMapping("/get-gt-players")
+	
+	@GetMapping("/get-gt-details")
 	public ModelAndView getGtPlayers() {
 		List<GtPlayers> list = repository.findAll();
-		return new ModelAndView("PlayersList","teams",list);
+		return new ModelAndView("PlayerList","teams",list);
 	}
+	
+	/*
+	@GetMapping("/get-gt-players")
+	public List<GtPlayers> getGtPlayers() {
+		return repository.findAll();
+	}
+	*/
 }

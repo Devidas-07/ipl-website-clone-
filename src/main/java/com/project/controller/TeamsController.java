@@ -3,8 +3,8 @@ package com.project.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.project.dto.Teams;
 import com.project.service.TeamsService;
@@ -15,12 +15,23 @@ public class TeamsController {
 	TeamsService service;
 	
 	@PostMapping("/save-teams")
-	public String saveTeams(@RequestBody Teams teams) {
+	public String saveTeams(@ModelAttribute Teams teams) {
 		service.saveTeams(teams);
 		return "team";
+	}
+	@GetMapping("/add-team")
+	public String addTeams() {
+		return "addTeams";
 	}
 	@GetMapping("/team")
 	public String teamPage() {
 		return "team";
 	}
+	
+	/*
+	public ModelAndView getTeams() {
+		List<Teams> list = service.getTeams();
+		return new ModelAndView(list)
+	}
+	 */
 }

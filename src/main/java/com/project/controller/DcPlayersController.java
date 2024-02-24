@@ -3,15 +3,16 @@ package com.project.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project.dto.DcPlayers;
 import com.project.repository.DcPlayersRepository;
 
-@RestController
+@Controller
 public class DcPlayersController {
 @Autowired
 DcPlayersRepository repository;
@@ -22,18 +23,20 @@ DcPlayersRepository repository;
 	@PostMapping("/save-dc-players")
 	public String saveDcPlayers(@ModelAttribute DcPlayers players) {
 		repository.save(players);
-		return "redirect:/get-dc-players";
+		return "redirect:/get-dc-details";
 	}
-	/*@GetMapping("/get-dc-players")
+	@GetMapping("/get-dc-details")
 	public ModelAndView getDcPlayers() {
 		List<DcPlayers> list = repository.findAll();
 		return new ModelAndView("PlayerList","teams",list);
-	}*/
+	}
 	
 	
+	/*
 	@GetMapping("/get-dc-players")
 	public List<DcPlayers> getDcPlayers() {
 		return repository.findAll();
 	}
+	*/
 
 }
