@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<title>Add Matches</title>
+</head>
+
+<body>
+
+	<div class="container my-5 p-5" style="border: 1px solid black;">
+		<div class="h4 text-center ">Insert Matches</div>
+		<form class="col-md-4 offset-md-4" th:action="@{/save-match}"
+			method="post">
+
+			<div class="mb-3">
+				<label for="teamSelect" class="form-label">First Team</label> <select
+					class="form-select" id="teamSelect" name="team1">
+					<option value="Chennai Super Kings">CSK</option>
+					<option value="Mumbai Indians">MI</option>
+					<option value="Royal Challanger Bangalor">RCB</option>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label for="teamSelect" class="form-label">Second Team</label> <select
+					class="form-select" id="teamSelect" name="team2">
+					<option value="Chennai Super Kings">CSK</option>
+					<option value="Mumbai Indians">MI</option>
+					<option value="Royal Challanger Bangalor">RCB</option>
+				</select>
+			</div>
+
+			<div class="mb-3">
+				<label for="teamSelect" class="form-label">Venue</label> <select
+					class="form-select" id="teamSelect" name="venue">
+					<option value="WANKHEDE STADIUM ">WANKHEDE STADIUM </option>
+					<option value="M.A. CHIGAMBARAM STADIUM ">M.A. CHIGAMBARAM STADIUM </option>
+					<option value="ARUN JAITLEY STADIUM ">ARUN JAITLEY STADIUM </option>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label for="date" class="form-label">Date and Time</label>
+				<input type="datetime-local" id="date" name="date">
+			</div>
+
+			
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+
+
+		</form>
+	</div>
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

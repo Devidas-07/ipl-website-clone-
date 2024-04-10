@@ -11,12 +11,19 @@ import com.project.repository.MiPlayersRepository;
 @Service
 public class MiPlayersService {
 	@Autowired
-	MiPlayersRepository miplayersrepository;
+	MiPlayersRepository repo;
+	
 	public List<MiPlayers> getMiPlayers() {
-		List<MiPlayers> list = miplayersrepository.findAll();
+		List<MiPlayers> list = repo.findAll();
 		return list;
 	}
 	public void save(MiPlayers miplayers) {
-		miplayersrepository.save(miplayers);
+		repo.save(miplayers);
+	}
+	public MiPlayers getMiPlayerById(int id) {
+		return repo.findById(id).get();
+	}
+	public void deleteMiPlayerById(int id) {
+		repo.deleteById(id);
 	}
 }

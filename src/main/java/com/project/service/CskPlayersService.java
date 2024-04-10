@@ -20,6 +20,12 @@ public class CskPlayersService {
 		
 		return list;
 	}
+	public CskPlayers getCskPlayerById(int id) {
+		return repository.findById(id).get();
+	}
+	public void deletePlayerById(int id) {
+		repository.deleteById(id);
+	}
 	
 	
 }

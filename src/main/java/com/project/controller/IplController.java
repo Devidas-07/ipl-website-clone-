@@ -1,8 +1,13 @@
 package com.project.controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.project.service.CskPlayersService;
 @Controller
 public class IplController {
+	@Autowired
+	CskPlayersService service;
 	@GetMapping("/")
 	public String homePage() {
 		return "index";
@@ -19,4 +24,6 @@ public class IplController {
 	public String adminPage() {
 		return "admin";
 	}
+	
+	
 }

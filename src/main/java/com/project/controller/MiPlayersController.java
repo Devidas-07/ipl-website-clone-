@@ -16,34 +16,29 @@ import com.project.service.MiPlayersService;
 
 public class MiPlayersController {
 	@Autowired
-	MiPlayersService miplayersservice;
+	MiPlayersService service;
 	
-	/*@GetMapping("/mi_players")
-	public ModelAndView getMiPlayers() {
-		List<MiPlayers> list = miplayersservice.getMiPlayers();
-		return new ModelAndView("PlayerList", "players", list);
-	}
-	*/
-	
-	
+
 	@GetMapping("/add-mi-players")
 	public String addMiPlayersForm() {
 		return "addMiPlayers";			
 	}
 	@PostMapping("/save-mi-players")
 	public String addMiPlayers(@ModelAttribute MiPlayers miPlayers) {
-		miplayersservice.save(miPlayers);
+		service.save(miPlayers);
 		return "redirect:/mi-team-details";
 	}
 	@GetMapping("/get-mi-details")
 	public ModelAndView getMiTeamDetails() {
-		List<MiPlayers> list = miplayersservice.getMiPlayers();
+		List<MiPlayers> list = service.getMiPlayers();
 		return new ModelAndView("PlayerList","teams",list);
 	}
-//	@GetMapping("/mi-team-details")
-//	public List<MiPlayers> getMiTeamDetails() {
-//		List<MiPlayers> list = miplayersservice.getMiPlayers();
-//		return  list;
+//	@RequestMapping("/editPlayer/{id}")
+//	public String editMiPlayer(@PathVariable("id")int id, Model model) {
+//		MiPlayers player = service.getMiPlayerById(id);
+//		model.addAttribute("player",player);
+//		return "editPlayer";
 //	}
+
 
 }
