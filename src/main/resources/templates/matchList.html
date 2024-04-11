@@ -12,53 +12,62 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light "
+	<nav class="navbar navbar-expand-lg navbar-light "
 		style="background-image: url('Images/header-curl-bg.svg'); background-repeat: repeat-x; background-size: 50%; background-color: rgb(49, 49, 161)">
 		<div class="container-fluid">
-			<a class="navbar-brand text-white" href="#"><img src="Images/ipl-logo.png"
-					style="height: 50px; width: 95px; position: relative;"> </a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+			<a class="navbar-brand text-white" href="#"><img
+				src="Images/ipl-logo.png"
+				style="height: 50px; width: 95px; position: relative;"> </a>
+			<button class="navbar-toggler text-white" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+				<span class="navbar-toggler-icon text-white color-white"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link active text-white" aria-current="page" href="/">HOME</a>
-					</li>
-					<li class="nav-item"><a class="nav-link text-white" href="team">TEAM</a></li>
-					<li class="nav-item"><a class="nav-link text-white" href="get-match-details">MATCHES</a>
-					<li class="nav-item"><a class="nav-link text-white" href="point_table">POINT TABLE</a></li>
-					<li class="nav-item"><a class="nav-link text-white" href="venue">VENUES</a></li>
-					<li class="nav-item"><a class="nav-link text-white" href="about">ABOUT US</a></li>
-					
-					<li class="nav-item"><a class="nav-link text-white" href="admin">Admin</a></li>
-
-
+					<li class="nav-item"><a class="nav-link active text-white"
+						aria-current="page" href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link text-white"
+						href="team">Teams</a></li>
+					<li class="nav-item"><a class="nav-link text-white"
+						href="get-match-details">Matches</a>
+					<li class="nav-item"><a class="nav-link text-white"
+						href="point_table">Point Table</a></li>
+					<li class="nav-item"><a class="nav-link text-white"
+						href="venue">Venues</a></li>
+					<li class="nav-item"><a class="nav-link text-white"
+						href="about">About Us</a></li>
 				</ul>
 				<div>
-					<form class="d-flex" role="search">
-						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">Search</button>
-					</form>
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link text-white"
+							href="add-matches">Add Match</a></li>
+					</ul>
 				</div>
 
 			</div>
 		</div>
 	</nav>
-<h1>Upcoming Match Details</h1>
-<hr>
-	<div th:each="match:${matches}">
-	<span>
-    	<h4 th:text="${match.team1}"></h4>
-    </span>
-    <span>VS</span>
-    <span>
-    	<h4 th:text="${match.team2}"></h4>
-    </span>
-    <p th:text="${match.venue}"></p>
-    <p th:text="${match.date}"></p>
+	<h1>Upcoming Match Details</h1>
+	<hr>
+	
+	<div th:each="match:${matches}" class="row p-3 text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle rounded-3">
+		<div class="col-4">
+			<h2 th:text="${match.team1}"></h2>
+			
+		</div>
+		<div class="col-4">
+			<span>VS</span>
+		</div>
+		<div class="col-4">
+			<h2 th:text="${match.team2}"></h2>
+		</div>
+		<div>
+			<p th:text="${match.venue}"></p>
+		</div>
 	</div>
+	
 </body>
 
 </html>

@@ -24,7 +24,7 @@ public class CskPlayersController {
 	@Autowired
 	CskPlayersService service;
 	@Autowired
-	Dream11Repository repo;
+	Dream11Repository dreamRepo;
 
 	
 
@@ -58,7 +58,7 @@ public class CskPlayersController {
 		return "redirect:/get-csk-details";
 	}
 
-	@GetMapping("/get-by-id/{id}")
+	@GetMapping("/get-csk-by-id/{id}")
 	public CskPlayers getById(@PathVariable("id") int id) {
 		return service.getCskPlayerById(id);
 	}
@@ -67,14 +67,10 @@ public class CskPlayersController {
 		CskPlayers dreamPlayer =service.getCskPlayerById(id);
 		
 		Dream11 dream11= new Dream11(dreamPlayer.getId(), dreamPlayer.getPlayerName(), dreamPlayer.getRoll(), dreamPlayer.getNation(), dreamPlayer.getTeams());
-		repo.save(dream11);
+		dreamRepo.save(dream11);
 		return "redirect:/get-dream11";
 	}
-	@GetMapping("/get-dream11")
-	public ModelAndView getDream11() {
-		List<Dream11> dream11 = repo.findAll();
-		return new ModelAndView("dream11","dream11",dream11);
-	}
+	
 	
 
 }

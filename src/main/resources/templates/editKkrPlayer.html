@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<title> Edit KKR Players</title>
+</head>
+
+<body>
+	
+	<div class="container my-5 p-5" style="border:1px solid black;">
+		<div class="h4 text-center ">EDIT <span th:text="${player.teams.name}"></span> PLAYER</div>
+		<form class="col-md-4 offset-md-4" th:action="@{/save-kkr-players}" method="post" th:object="${player}">
+			<input type="hidden" name="id" th:value="${player.id}"/>
+			<div class="mb-3">
+				<label for="playerName" class="form-control">Player Name</label>
+				<input type="text"  class="form-control" name="playerName" th:value="${player.playerName}">
+			</div>
+			<div class="mb-3">
+				<label for="roll" class="form-control">Roll</label>
+				<input type="text" class="form-control" name="roll" th:value="${player.roll}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="nation" class="form-control">Nation</label>
+				<input type="text" id="nation" class="form-control" name="nation" th:value="${player.nation}">
+			</div>
+			<div class="mb-3">
+				<label for="team_id" class="form-control">Team ID</label>
+				<input type="text"  class="form-control" name="teams" th:value="${player.teams.tid}">
+			</div>
+			
+				<button type="submit" class="btn btn-primary">Submit</button>
+				
+			
+		</form>
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

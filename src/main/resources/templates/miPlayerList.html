@@ -7,7 +7,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 
-<title>PK Players List</title>
+<title>MI Players List</title>
 </head>
 
 <body>
@@ -40,7 +40,7 @@
 				<div>
 					<ul>
 						<li class="nav-item"><a class="nav-link text-white"
-							href="add-pk-players">Add PK Player</a></li>
+							href="add-mi-players">Add MI Player</a></li>
 					</ul>
 				</div>
 
@@ -89,7 +89,7 @@
 			<tbody>
 				<tr th:each="player : ${teams}">
 					<td><a class="btn btn-success btn-sm"
-						th:href="@{/add-pk-to-dream11/{id} (id=${player.id})}">ADD TO
+						th:href="@{/add-mi-to-dream11/{id} (id=${player.id})}">ADD TO
 							DREAM11</a></td>
 
 					<td th:text="${player.playerName}"></td>
@@ -97,9 +97,9 @@
 					<td th:text="${player.nation}"></td>
 
 					<td><a class="btn btn-primary btn-sm"
-						th:href="@{/edit-pk-player/{id} (id=${player.id})}">UPDATE</a></td>
+						th:href="@{/edit-mi-player/{id} (id=${player.id})}">UPDATE</a></td>
 					<td><a class="btn btn-danger btn-sm"
-						th:href="@{/delete-pk-player/{id} (id=${player.id})}">DELETE</a>
+						th:href="@{/delete-mi-player/{id} (id=${player.id})}">DELETE</a>
 				</tr>
 			</tbody>
 		</table>

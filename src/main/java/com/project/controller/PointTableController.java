@@ -16,14 +16,14 @@ import com.project.service.PointTableService;
 public class PointTableController {
 	@Autowired
 	PointTableService service;
-	@GetMapping("/get-point-table")
+	@GetMapping("/add-point-table")
 	public String getPointTable() {
 		return "updatePointTable";
 	}
 	@PostMapping("/update-point-table")
 	public String updatePointTable(@ModelAttribute PointTable point) {
 		service.updatePointTable(point);
-		return "pointTable";
+		return "redirect:/point_table";
 	}
 	@GetMapping("/point_table")
 	public ModelAndView pointTablePage() {
