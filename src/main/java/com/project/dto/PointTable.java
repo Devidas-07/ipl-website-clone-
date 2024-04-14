@@ -15,7 +15,7 @@ public class PointTable {
 	private int played;
 	private int won;
 	private int loss;
-	private int nr;
+	private double nr;
 	private int points;
 	
 	public int getPosition() {
@@ -49,10 +49,10 @@ public class PointTable {
 		this.loss = loss;
 	}
 	
-	public int getNr() {
+	public double getNr() {
 		return nr;
 	}
-	public void setNr(int nr) {
+	public void setNr(double nr) {
 		this.nr = nr;
 	}
 	public int getPoints() {
