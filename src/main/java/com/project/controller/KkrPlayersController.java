@@ -31,7 +31,7 @@ public class KkrPlayersController {
 	@PostMapping("/save-kkr-players")
 	public String saveKkrPlayers(@ModelAttribute KkrPlayers KkrPlayers) {
 		repository.save(KkrPlayers);
-		return "redirect:/get-kkr-details";
+		return "redirect:/get-kkr-details-for-admin";
 	}
 	
 	@GetMapping("/get-kkr-details")
@@ -39,23 +39,32 @@ public class KkrPlayersController {
 		List<KkrPlayers> list = repository.findAll();
 		return new ModelAndView("playerListForClient","players",list);
 	}
+	@GetMapping("/get-kkr-details-for-admin")
+	public ModelAndView getKkrDetailsForAdmin() {
+		List<KkrPlayers> list = repository.findAll();
+		return new ModelAndView("playerListForAdmin","players",list);
+	}
 	@RequestMapping("/edit-kolkata-knight-riders-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {
 		KkrPlayers player = repository.findById(id).get();
 		model.addAttribute("player", player);
 		return "editKkrPlayer";
 	}
-	@RequestMapping("/delete-kkr-player/{id}")
+	@RequestMapping("/delete-kolkata-knight-riders-player/{id}")
 	public String deletePlayer(@PathVariable("id")int id) {
 		repository.deleteById(id);
 		return "redirect:/get-kkr-details";
 	}
-	@RequestMapping("/add-kkr-to-dream11/{id}")
+	@RequestMapping("/add-kolkata-knight-riders-player-to-dream11/{id}")
 	public String addToDream11(@PathVariable("id") int id) {
 		KkrPlayers dreamPlayer=repository.findById(id).get();
 		
 		Dream11 dream11= new Dream11(dreamPlayer.getId(), dreamPlayer.getPlayerName(), dreamPlayer.getRoll(), dreamPlayer.getNation(), dreamPlayer.getTeams());
 		dreamRepo.save(dream11);
 		return "redirect:/get-dream11";
+	}
+	@GetMapping("/kkr-venue")
+	public String getKkrStadiumDetails() {
+		return "kkrVenue";
 	}
 }

@@ -30,20 +30,25 @@ Dream11Repository dreamRepo;
 	@PostMapping("/save-dc-players")
 	public String saveDcPlayers(@ModelAttribute DcPlayers players) {
 		repository.save(players);
-		return "redirect:/get-dc-details";
+		return "redirect:/get-dc-details-for-admin";
 	}
 	@GetMapping("/get-dc-details")
 	public ModelAndView getDcPlayers() {
 		List<DcPlayers> list = repository.findAll();
 		return new ModelAndView("playerListForClient","players",list);
 	}
-	@RequestMapping("/edit-dc-player/{id}")
+	@GetMapping("/get-dc-details-for-admin")
+	public ModelAndView getDcPlayersForAdmin() {
+		List<DcPlayers> list = repository.findAll();
+		return new ModelAndView("playerListForAdmin","players",list);
+	}
+	@RequestMapping("/edit-delhi-capitals-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {
 		DcPlayers player = repository.findById(id).get();
 		model.addAttribute("player", player);
 		return "editDcPlayer";
 	}
-	@RequestMapping("/delete-dc-player/{id}")
+	@RequestMapping("/delete-delhi-capitals-player/{id}")
 	public String deletePlayer(@PathVariable("id")int id) {
 		repository.deleteById(id);
 		return "redirect:/get-dc-details";
@@ -56,5 +61,8 @@ Dream11Repository dreamRepo;
 		dreamRepo.save(dream11);
 		return "redirect:/get-dream11";
 	}
-
+	@GetMapping("/dc-venue")
+	public String getDcStadiumDetails() {
+		return "dcVenue";
+	}
 }

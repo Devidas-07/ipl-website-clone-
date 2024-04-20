@@ -1,15 +1,22 @@
 package com.project.service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.project.dto.CskPlayers;
 import com.project.repository.CskPlayersRepository;
 
 @Service
-public class CskPlayersService {
+public class DcPlayersService {
 	@Autowired
 	CskPlayersRepository repository;
 	
@@ -33,8 +40,14 @@ public class CskPlayersService {
 	public void deletePlayerById(int id) {
 		repository.deleteById(id);
 	}
-	/*
-	private String saveImageToFileStorage(MultipartFile imageFile) {
+	
+	
+	
+	
+	
+	
+	
+	public String saveImageToFileStorage(MultipartFile imageFile) {
 	    String uploadDirectory = "C:\\FSD24APR\\JAVA\\Java Program\\SPRING BOOT\\ipl-website-clone\\src\\main\\resources\\static\\Images";
 
 	    try {
@@ -53,15 +66,9 @@ public class CskPlayersService {
 	        return null;
 	    }
 	}
-	*/
-	/*
 	public void saveCskPlayers(CskPlayers player, MultipartFile imageFile) {
 		String imageUrl = saveImageToFileStorage(imageFile);
 		player.setImg(imageUrl);
-		repository.save(player);
-	}
-	*/
-	public void saveCskPlayers(CskPlayers player) {
 		repository.save(player);
 	}
 	

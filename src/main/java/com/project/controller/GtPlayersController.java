@@ -31,7 +31,7 @@ Dream11Repository dreamRepo;
 	@PostMapping("/save-gt-players")
 	public String saveGtPlayers(@ModelAttribute GtPlayers players) {
 		repository.save(players);
-		return "redirect:/get-gt-details";
+		return "redirect:/get-gt-details-for-admin";
 	}
 	
 	@GetMapping("/get-gt-details")
@@ -39,18 +39,23 @@ Dream11Repository dreamRepo;
 		List<GtPlayers> list = repository.findAll();
 		return new ModelAndView("playerListForClient","players",list);
 	}
-	@RequestMapping("/edit-gt-player/{id}")
+	@GetMapping("/get-gt-details-for-admin")
+	public ModelAndView getGtPlayersForAdmin() {
+		List<GtPlayers> list = repository.findAll();
+		return new ModelAndView("playerListForAdmin","players",list);
+	}
+	@RequestMapping("/edit-gujarat-titans-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {
 		GtPlayers player = repository.findById(id).get();
 		model.addAttribute("player", player);
 		return "editGtPlayer";
 	}
-	@RequestMapping("/delete-gt-player/{id}")
+	@RequestMapping("/delete-gujarat-titans-player/{id}")
 	public String deletePlayer(@PathVariable("id")int id) {
 		repository.deleteById(id);
 		return "redirect:/get-gt-details";
 	}
-	@RequestMapping("/add-gt-to-dream11/{id}")
+	@RequestMapping("/add-gujarat-titans-player-to-dream11/{id}")
 	public String addToDream11(@PathVariable("id") int id) {
 		GtPlayers dreamPlayer=repository.findById(id).get();
 		

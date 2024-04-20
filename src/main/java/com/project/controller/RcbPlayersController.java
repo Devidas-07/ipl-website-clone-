@@ -31,30 +31,39 @@ public class RcbPlayersController {
 	@PostMapping("/save-rcb-players")
 	public String saveRcbPlayers(@ModelAttribute RcbPlayers rcbplayers) {
 		repository.save(rcbplayers);
-		return "redirect:/get-rcb-details";
+		return "redirect:/get-rcb-details-for-admin";
 	}
 	@GetMapping("/get-rcb-details")
 	public ModelAndView getRcbDetails() {
 		List<RcbPlayers> list =  repository.findAll();
 		return new ModelAndView("playerListForClient", "players",list);
 	}
-	@RequestMapping("/edit-rcb-player/{id}")
+	@GetMapping("/get-rcb-details-for-admin")
+	public ModelAndView getRcbDetailsForAdmin() {
+		List<RcbPlayers> list =  repository.findAll();
+		return new ModelAndView("playerListForAdmin", "players",list);
+	}
+	@RequestMapping("/edit-royal-challengers-bangalore-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {
 		RcbPlayers player = repository.findById(id).get();
 		model.addAttribute("player", player);
 		return "editRcbPlayer";
 	}
-	@RequestMapping("/delete-rcb-player/{id}")
+	@RequestMapping("/delete-royal-challengers-bangalore-player/{id}")
 	public String deletePlayer(@PathVariable("id")int id) {
 		repository.deleteById(id);
 		return "redirect:/get-rcb-details";
 	}
-	@RequestMapping("/add-rcb-to-dream11/{id}")
+	@RequestMapping("/add-royal-challengers-bangalore-player-to-dream11/{id}")
 	public String addToDream11(@PathVariable("id") int id) {
 		RcbPlayers dreamPlayer=repository.findById(id).get();
 		
 		Dream11 dream11= new Dream11(dreamPlayer.getId(), dreamPlayer.getPlayerName(), dreamPlayer.getRoll(), dreamPlayer.getNation(), dreamPlayer.getTeams());
 		dreamRepo.save(dream11);
 		return "redirect:/get-dream11";
+	}
+	@GetMapping("/rcb-venue")
+	public String getRcbStadiumDetails() {
+		return "rcbVenue";
 	}
 }

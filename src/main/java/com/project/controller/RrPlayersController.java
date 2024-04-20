@@ -32,25 +32,30 @@ public class RrPlayersController {
 	@PostMapping("/save-rr-players")
 	public String saveRrPlayers(@ModelAttribute RrPlayers rrplayers) {
 		repository.save(rrplayers);
-		return "redirect:/get-rr-details";
+		return "redirect:/get-rr-details-for-admin";
 	}
 	@GetMapping("/get-rr-details")
 	public ModelAndView getRrDetails() {
 		List<RrPlayers> list = repository.findAll();
 		return new ModelAndView("playerListForClient", "players", list);
 	}
-	@RequestMapping("/edit-rr-player/{id}")
+	@GetMapping("/get-rr-details-for-admin")
+	public ModelAndView getRrDetailsForAdmin() {
+		List<RrPlayers> list = repository.findAll();
+		return new ModelAndView("playerListForAdmin", "players", list);
+	}
+	@RequestMapping("/edit-rajasthan-royals-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {
 		RrPlayers player = repository.findById(id).get();
 		model.addAttribute("player", player);
 		return "editRrPlayer";
 	}
-	@RequestMapping("/delete-rr-player/{id}")
+	@RequestMapping("/delete-rajasthan-royals-player-player/{id}")
 	public String deletePlayer(@PathVariable("id")int id) {
 		repository.deleteById(id);
 		return "redirect:/get-rr-details";
 	}
-	@RequestMapping("/add-rr-to-dream11/{id}")
+	@RequestMapping("/add-rajasthan-royals-player-to-dream11/{id}")
 	public String addToDream11(@PathVariable("id") int id) {
 		RrPlayers dreamPlayer=repository.findById(id).get();
 		

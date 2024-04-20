@@ -6,16 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.dto.CskPlayers;
 import com.project.dto.Dream11;
-import com.project.dto.Teams;
 import com.project.repository.Dream11Repository;
 import com.project.service.CskPlayersService;
 
@@ -58,7 +56,7 @@ public class CskPlayersController {
 		return new ModelAndView("playerListForAdmin","players",list);
 	}
 	
-	
+	/*
 	@PostMapping("/save-csk-players")
 	public String saveCskPlayers(@RequestParam("playerName") String playerName,
             @RequestParam("nation") String nation,
@@ -74,26 +72,17 @@ public class CskPlayersController {
 		service.saveCskPlayers(player, imageFile);
 		return "redirect:/get-csk-details";
 	}
-
+	*/
+	@PostMapping("/save-csk-players")
+	public String saveCskPlayer(@ModelAttribute CskPlayers player) {
+		service.saveCskPlayers(player);
+		return "redirect:/get-csk-details-for-admin";
+	}
 	@GetMapping("/add-csk-players")
 	public String addCskPlayers() {
 		return "addCskPlayers";
 	}
-//	@GetMapping("/upload-img-page")
-//	public String uploadImgPage() {
-//		return "uploadImage";
-//	}
-	
-//	  @PostMapping("/upload")
-//	    public String uploadImage(@RequestParam("imageFile") MultipartFile imageFile) {
-//	        // Save the image to a location and get its URL
-//	        String imageUrl = saveImageToFileStorage(imageFile);
-//	        // Save the image URL to the database
-//	        service.saveImage(imageUrl);
-//	        return "redirect:/get-csk-details";
-//	    }
-	
-	
+
 	@RequestMapping("/edit-chennai-super-kings-player/{id}")
 	public String editPlayer(@PathVariable("id") int id, Model model) {
 		CskPlayers player = service.getCskPlayerById(id);
@@ -120,7 +109,10 @@ public class CskPlayersController {
 		dreamRepo.save(dream11);
 		return "redirect:/get-dream11";
 	}
-	
+	@GetMapping("/csk-venue")
+	public String getCskStadiumDetails() {
+		return "cskVenue";
+	}
 	
 
 }

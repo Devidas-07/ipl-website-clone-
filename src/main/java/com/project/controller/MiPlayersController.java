@@ -32,20 +32,25 @@ public class MiPlayersController {
 	@PostMapping("/save-mi-players")
 	public String addMiPlayers(@ModelAttribute MiPlayers miPlayers) {
 		service.save(miPlayers);
-		return "redirect:/get-mi-details";
+		return "redirect:/get-mi-details-for-admin";
 	}
 	@GetMapping("/get-mi-details")
 	public ModelAndView getMiTeamDetails() {
 		List<MiPlayers> list = service.getMiPlayers();
 		return new ModelAndView("playerListForClient","players",list);
 	}
-	@RequestMapping("/edit-mi-player/{id}")
+	@GetMapping("/get-mi-details-for-admin")
+	public ModelAndView getMiTeamDetailsForAdmin() {
+		List<MiPlayers> list = service.getMiPlayers();
+		return new ModelAndView("playerListForAdmin","players",list);
+	}
+	@RequestMapping("/edit-mumbai-indians-player/{id}")
 	public String editPlayer(@PathVariable("id") int id, Model model) {
 		MiPlayers player = service.getMiPlayerById(id);
 		model.addAttribute("player", player);
 		return "editMiPlayer";
 	}
-	@RequestMapping("/delete-mi-player/{id}")
+	@RequestMapping("/delete-mumbai-indians-player/{id}")
 	public String deletePlayer(@PathVariable("id") int id) {
 		service.deleteMiPlayerById(id);
 		return "redirect:/get-mi-details";
@@ -55,12 +60,16 @@ public class MiPlayersController {
 	public MiPlayers getById(@PathVariable("id") int id) {
 		return service.getMiPlayerById(id);
 	}
-	@RequestMapping("/add-mi-to-dream11/{id}")
+	@RequestMapping("/add-mumbai-indians-player-to-dream11/{id}")
 	public String addToDream11(@PathVariable("id") int id) {
 		MiPlayers dreamPlayer =service.getMiPlayerById(id);
 		
 		Dream11 dream11= new Dream11(dreamPlayer.getId(), dreamPlayer.getPlayerName(), dreamPlayer.getRoll(), dreamPlayer.getNation(), dreamPlayer.getTeams());
 		dreamRepo.save(dream11);
 		return "redirect:/get-dream11";
+	}
+	@GetMapping("/mi-venue")
+	public String getMIStadiumDetails() {
+		return "miVenue";
 	}
 }

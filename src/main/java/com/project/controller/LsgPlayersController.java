@@ -32,25 +32,30 @@ public class LsgPlayersController {
 	@PostMapping("/save-lsg-players")
 	public String saveLsgPlayers(@ModelAttribute LsgPlayers LsgPlayers) {
 		repository.save(LsgPlayers);
-		return "redirect:/get-lsg-details";
+		return "redirect:/get-lsg-details-for-admin";
 	}
 	@GetMapping("/get-lsg-details")
 	public ModelAndView getLsgDetails() {
 		List<LsgPlayers> list =  repository.findAll();
 		return new ModelAndView("playerListForClient", "players", list);
 	}
-	@RequestMapping("/edit-lsg-player/{id}")
+	@GetMapping("/get-lsg-details-for-admin")
+	public ModelAndView getLsgDetailsForAdmin() {
+		List<LsgPlayers> list =  repository.findAll();
+		return new ModelAndView("playerListForAdmin", "players", list);
+	}
+	@RequestMapping("/edit-lucknow-super-giants-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {
 		LsgPlayers player = repository.findById(id).get();
 		model.addAttribute("player", player);
 		return "editLsgPlayer";
 	}
-	@RequestMapping("/delete-lsg-player/{id}")
+	@RequestMapping("/delete-lucknow-super-giants-player/{id}")
 	public String deletePlayer(@PathVariable("id")int id) {
 		repository.deleteById(id);
 		return "redirect:/get-lsg-details";
 	}
-	@RequestMapping("/add-lsg-to-dream11/{id}")
+	@RequestMapping("/add-lucknow-super-giants-player-to-dream11/{id}")
 	public String addToDream11(@PathVariable("id") int id) {
 		LsgPlayers dreamPlayer=repository.findById(id).get();
 		

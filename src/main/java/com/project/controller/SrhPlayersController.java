@@ -31,25 +31,30 @@ public class SrhPlayersController {
 	@PostMapping("/save-srh-players")
 	public String saveSrhPlayers(@ModelAttribute SrhPlayers srhplayers) {
 		repository.save(srhplayers);
-		return "redirect:/get-srh-details";
+		return "redirect:/get-srh-details-for-admin";
 	}
 	@GetMapping("/get-srh-details")
 	public ModelAndView getSrhDetails() {
 		List<SrhPlayers> list =  repository.findAll();
 		return new ModelAndView("playerListForClient", "players", list);
 	}
-	@RequestMapping("/edit-srh-player/{id}")
+	@GetMapping("/get-srh-details-for-admin")
+	public ModelAndView getSrhDetailsForAdmin() {
+		List<SrhPlayers> list =  repository.findAll();
+		return new ModelAndView("playerListForAdmin", "players", list);
+	}
+	@RequestMapping("/edit-sunrisers-hyderabad-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {
 		SrhPlayers player = repository.findById(id).get();
 		model.addAttribute("player", player);
 		return "editSrhPlayer";
 	}
-	@RequestMapping("/delete-srh-player/{id}")
+	@RequestMapping("/delete-sunrisers-hyderabad-player/{id}")
 	public String deletePlayer(@PathVariable("id")int id) {
 		repository.deleteById(id);
 		return "redirect:/get-srh-details";
 	}
-	@RequestMapping("/add-srh-to-dream11/{id}")
+	@RequestMapping("/add-sunrisers-hyderabad-player-to-dream11/{id}")
 	public String addToDream11(@PathVariable("id") int id) {
 		SrhPlayers dreamPlayer=repository.findById(id).get();
 		
