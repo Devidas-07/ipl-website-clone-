@@ -36,7 +36,7 @@ public class SrhPlayersController {
 	@GetMapping("/get-srh-details")
 	public ModelAndView getSrhDetails() {
 		List<SrhPlayers> list =  repository.findAll();
-		return new ModelAndView("srhPlayerList", "teams", list);
+		return new ModelAndView("playerListForClient", "players", list);
 	}
 	@RequestMapping("/edit-srh-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {

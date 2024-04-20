@@ -16,6 +16,7 @@ public class CskPlayers {
 	private String playerName;
 	
 	private String roll;
+	private String img;
 	
 	
 	private String nation;
@@ -54,6 +55,12 @@ public class CskPlayers {
 	}
 	public void setRoll(String roll) {
 		this.roll = roll;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
 	}
 	
 	

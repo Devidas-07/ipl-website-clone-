@@ -9,6 +9,10 @@ public class IplController {
 	@Autowired
 	CskPlayersService service;
 	@GetMapping("/")
+	public String clientLoginPage() {
+		return "clientLoginForm";
+	}
+	@GetMapping("/home-page")
 	public String homePage() {
 		return "index";
 	}

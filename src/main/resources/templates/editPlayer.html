@@ -13,7 +13,7 @@
 	
 	<div class="container my-5 p-5" style="border:1px solid black;">
 		<div class="h4 text-center ">EDIT <span th:text="${player.teams.name}"></span> PLAYER</div>
-		<form class="col-md-4 offset-md-4" th:action="@{/save-csk-players}" method="post" th:object="${player}">
+		<form class="col-md-4 offset-md-4" th:action="@{/save-csk-players}" method="post" th:object="${player}" enctype="multipart/form-data">
 			<input type="hidden" name="id" th:value="${player.id}"/>
 			<div class="mb-3">
 				<label for="playerName" class="form-control">Player Name</label>
@@ -32,6 +32,7 @@
 				<label for="team_id" class="form-control">Team ID</label>
 				<input type="text"  class="form-control" name="teams" th:value="${player.teams.tid}">
 			</div>
+						        <input type="file" name="imageFile" accept="image/*"><br><br>
 			
 				<button type="submit" class="btn btn-primary">Submit</button>
 				

@@ -37,7 +37,7 @@ Dream11Repository dreamRepo;
 	@GetMapping("/get-gt-details")
 	public ModelAndView getGtPlayers() {
 		List<GtPlayers> list = repository.findAll();
-		return new ModelAndView("gtPlayerList","teams",list);
+		return new ModelAndView("playerListForClient","players",list);
 	}
 	@RequestMapping("/edit-gt-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {

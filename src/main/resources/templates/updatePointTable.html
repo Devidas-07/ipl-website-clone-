@@ -15,8 +15,8 @@
 		<form class="col-md-4 offset-md-4" th:action="@{/update-point-table}" method="post">
 			
 			<div class="mb-3">
-				<label for="pos" class="form-control">Position</label>
-				<input type="number" id="pos" class="form-control" name="position">
+				<label for="teamUrl" class="form-control">Image URL</label>
+				<input type="text" id="teamUrl" class="form-control" name="teamUrl">
 			</div>
 			<div class="mb-3">
 				<label for="team" class="form-control">Team</label>
@@ -29,19 +29,19 @@
 			</div>
 			<div class="mb-3">
 				<label for="won" class="form-control">Won</label>
-				<input type="number" id="won" class="form-control" name="won">
+				<input type="text" id="won" class="form-control" name="won">
 			</div>
 			<div class="mb-3">
 				<label for="loss" class="form-control">Loss</label>
 				<input type="number" id="loss" class="form-control" name="loss">
 			</div>
 			<div class="mb-3">
-				<label for="net_run_rate" class="form-control">Points</label>
-				<input type="number" id="net_run_rate" class="form-control" name="nr" placeholder="">
+				<label for="points" class="form-control">Points</label>
+				<input type="number" id="points" class="form-control" name="points" placeholder="">
 			</div>
 			<div class="mb-3">
-				<label for="points" class="form-control">Net Run Rate</label>
-				<input type="text" id="points" class="form-control" name="points" placeholder="">
+				<label for="nr" class="form-control">Net Run Rate</label>
+				<input type="text" id="nr" class="form-control" name="nr" placeholder="">
 			</div>
 				<button type="submit" class="btn btn-primary">Submit</button>
 				

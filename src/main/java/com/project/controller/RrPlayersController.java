@@ -37,7 +37,7 @@ public class RrPlayersController {
 	@GetMapping("/get-rr-details")
 	public ModelAndView getRrDetails() {
 		List<RrPlayers> list = repository.findAll();
-		return new ModelAndView("rrPlayerList", "teams", list);
+		return new ModelAndView("playerListForClient", "players", list);
 	}
 	@RequestMapping("/edit-rr-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {

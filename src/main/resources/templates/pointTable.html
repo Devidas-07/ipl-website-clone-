@@ -28,24 +28,20 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active text-white"
-						aria-current="page" href="/">Home</a></li>
+						aria-current="page" href="/home-page">Home</a></li>
 					<li class="nav-item"><a class="nav-link text-white"
 						href="team">Teams</a></li>
 					<li class="nav-item"><a class="nav-link text-white"
 						href="get-match-details">Matches</a>
-					<li class="nav-item"><a class="nav-link text-white"
+
+						<li class="nav-item"><a class="nav-link text-white"
 						href="point_table">Point Table</a></li>
 					<li class="nav-item"><a class="nav-link text-white"
 						href="venue">Venues</a></li>
 					<li class="nav-item"><a class="nav-link text-white"
 						href="about">About Us</a></li>
 				</ul>
-				<div>
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link text-white"
-							href="add-point-table">Add Team to Point Table</a></li>
-					</ul>
-				</div>
+				
 
 			</div>
 		</div>
@@ -55,25 +51,31 @@
 			<thead>
 				<tr>
 					
-					
+					<th scope="col">IMAGE</th>
 					<th scope="col">TEAM</th>
 					<th scope="col">PLAYED</th>
 					<th scope="col">WON</th>
 					<th scope="col">LOSS</th>
 					<th scope="col">NR</th>
 					<th scope="col">POINTS</th>
+					<th scope="col">ACTION 1</th>
+					
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="p:${pointTable}">
 					
+					
+					<td><img class="img-fluid rounded" th:src="@{${p.teamUrl}}" alt="teamImg" style=" height:50px; width:50px;"></td>
 					<td th:text="${p.team}"></td>
 					<td th:text="${p.played}"></td>
 					<td th:text="${p.won}"></td>
 					<td th:text="${p.loss}"></td>
 					<td th:text="${p.nr}"></td>
 					<td th:text="${p.points}"></td>
-					
+					<td><a class="btn btn-primary btn-sm"
+						th:href="@{/update-point-table-by-id/{id} (id=${p.id})}">UPDATE</a>
+					</td>
 					
 				</tr>
 				

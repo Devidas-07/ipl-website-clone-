@@ -35,7 +35,7 @@ Dream11Repository dreamRepo;
 	@GetMapping("/get-dc-details")
 	public ModelAndView getDcPlayers() {
 		List<DcPlayers> list = repository.findAll();
-		return new ModelAndView("dcPlayerList","teams",list);
+		return new ModelAndView("playerListForClient","players",list);
 	}
 	@RequestMapping("/edit-dc-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {
@@ -48,7 +48,7 @@ Dream11Repository dreamRepo;
 		repository.deleteById(id);
 		return "redirect:/get-dc-details";
 	}
-	@RequestMapping("/add-dc-to-dream11/{id}")
+	@RequestMapping("/add-delhi-capitals-player-to-dream11/{id}")
 	public String addToDream11(@PathVariable("id") int id) {
 		DcPlayers dreamPlayer=repository.findById(id).get();
 		

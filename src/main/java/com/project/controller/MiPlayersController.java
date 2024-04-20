@@ -37,7 +37,7 @@ public class MiPlayersController {
 	@GetMapping("/get-mi-details")
 	public ModelAndView getMiTeamDetails() {
 		List<MiPlayers> list = service.getMiPlayers();
-		return new ModelAndView("miPlayerList","teams",list);
+		return new ModelAndView("playerListForClient","players",list);
 	}
 	@RequestMapping("/edit-mi-player/{id}")
 	public String editPlayer(@PathVariable("id") int id, Model model) {

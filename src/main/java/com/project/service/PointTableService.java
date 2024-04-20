@@ -23,6 +23,9 @@ PointTableRepository repo;
 	public void updatePointTable(PointTable point) {
 		repo.save(point);
 	}
+	public PointTable getPointTableById(int id) {
+		return repo.findById(id).get();
+	}
 	
 	
 }

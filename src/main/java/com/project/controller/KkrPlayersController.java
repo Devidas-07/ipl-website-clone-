@@ -37,9 +37,9 @@ public class KkrPlayersController {
 	@GetMapping("/get-kkr-details")
 	public ModelAndView getKkrDetails() {
 		List<KkrPlayers> list = repository.findAll();
-		return new ModelAndView("kkrPlayerList","teams",list);
+		return new ModelAndView("playerListForClient","players",list);
 	}
-	@RequestMapping("/edit-kkr-player/{id}")
+	@RequestMapping("/edit-kolkata-knight-riders-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {
 		KkrPlayers player = repository.findById(id).get();
 		model.addAttribute("player", player);

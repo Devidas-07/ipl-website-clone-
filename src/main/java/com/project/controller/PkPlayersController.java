@@ -37,7 +37,7 @@ public class PkPlayersController {
 	@GetMapping("/get-pk-details")
 	public ModelAndView getPkDetails() {
 		List<PbksPlayers> list =  repository.findAll();
-		return new ModelAndView("pkPlayerList","teams",list);
+		return new ModelAndView("playerListForClient","players",list);
 	}
 	@RequestMapping("/edit-pk-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {

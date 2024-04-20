@@ -37,7 +37,7 @@ public class LsgPlayersController {
 	@GetMapping("/get-lsg-details")
 	public ModelAndView getLsgDetails() {
 		List<LsgPlayers> list =  repository.findAll();
-		return new ModelAndView("lsgPlayerList", "teams", list);
+		return new ModelAndView("playerListForClient", "players", list);
 	}
 	@RequestMapping("/edit-lsg-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {

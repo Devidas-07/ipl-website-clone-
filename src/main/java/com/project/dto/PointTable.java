@@ -10,6 +10,7 @@ public class PointTable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	private String teamUrl;
 	private String team;
 	private int position;
 	private int played;
@@ -66,6 +67,12 @@ public class PointTable {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getTeamUrl() {
+		return teamUrl;
+	}
+	public void setTeamUrl(String teamUrl) {
+		this.teamUrl = teamUrl;
 	}
 	
 	

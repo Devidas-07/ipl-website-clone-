@@ -45,70 +45,53 @@
 				</div>
 
 			</div>
-			
+
 		</div>
 	</nav>
 	<div>
 
-		<h2 th:if="${#lists.size(teams) > 0}"></h2>
-		<div class="row" th:if="${#lists.size(teams) > 0}">
-			<h2 th:text="${teams[0].teams.name}"></h2>
+		<h2 th:if="${#lists.size(players) > 0}"></h2>
+		<div class="row" th:if="${#lists.size(players) > 0}">
+			<h2 th:text="${players[0].teams.name}"></h2>
 			<div class="vn-trophyBtn">
 				<img src="https://www.iplt20.com/assets/images/team-trophy.png"
-					alt=""><span th:text="${teams[0].teams.winyears}"></span>
+					alt=""><span th:text="${players[0].teams.winyears}"></span>
 			</div>
 		</div>
 
 		<div>
 			<p>
-				<span>Owner</span> <b>-</b> <span th:text="${teams[0].teams.owner}"></span>
+				<span>Owner</span> <b>-</b> <span th:text="${players[0].teams.owner}"></span>
 			</p>
 			<p>
-				<span>Coach</span> <b>-</b> <span th:text="${teams[0].teams.coach}"></span>
+				<span>Coach</span> <b>-</b> <span th:text="${players[0].teams.coach}"></span>
 			</p>
 			<p>
-				<span>Venue</span> <b>-</b> <span th:text="${teams[0].teams.venue}"></span>
+				<span>Venue</span> <b>-</b> <span th:text="${players[0].teams.venue}"></span>
 			</p>
 			<p>
 				<span>Captain</span> <b>-</b> <span
-					th:text="${teams[0].teams.captain}"></span>
+					th:text="${players[0].teams.captain}"></span>
 			</p>
 		</div>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Action1</th>
-					<th>Player Name</th>
-					<th>Roll</th>
-					<th>Nation</th>
-					<th>Action2</th>
-					<th>Action3</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="player : ${teams}">
-					<td><a class="btn btn-success btn-sm"
-						th:href="@{/add-to-dream11/{id} (id=${player.id})}">ADD TO
-							DREAM11</a></td>
-
-					<td th:text="${player.playerName}"></td>
-					<td th:text="${player.roll}"></td>
-					<td th:text="${player.nation}"></td>
-
-					<td><a class="btn btn-primary btn-sm"
-						th:href="@{/editPlayer/{id} (id=${player.id})}">UPDATE</a></td>
-					<td><a class="btn btn-danger btn-sm"
-						th:href="@{/delete-player/{id} (id=${player.id})}">DELETE</a>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<div class="card-footer text-body-secondary" style="background-color: rgb(49, 49, 161);color:white;">
-		<div class="ap-copy col-100 floatLft" style="padding-bottom: 15px;">
-			<p class="mb-0 w-100 text-center">Copyright © IPL 2024 All Rights Reserved.</p>
+		<div >
+			<div class="row" >
+				<div th:each="player, iterStat : ${players}" class="col-md-3">
+					<img class="img-fluid rounded" th:src="@{${player.img}}" alt="rutu">
+					<h4 class="" th:text="${player.playerName}"></h4>
+				
+				<h6 th:text="${player.roll}"></h6>
+				<p th:text="${player.nation}"></p>
+				
+				</div>
+				
+				
+			</div>
+			
 		</div>
+		
 	</div>
+	
 
 </body>
 

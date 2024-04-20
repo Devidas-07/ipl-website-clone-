@@ -36,7 +36,7 @@ public class RcbPlayersController {
 	@GetMapping("/get-rcb-details")
 	public ModelAndView getRcbDetails() {
 		List<RcbPlayers> list =  repository.findAll();
-		return new ModelAndView("rcbPlayerList", "teams",list);
+		return new ModelAndView("playerListForClient", "players",list);
 	}
 	@RequestMapping("/edit-rcb-player/{id}")
 	public String editPlayer(@PathVariable("id")int id, Model model) {

@@ -45,7 +45,7 @@
 				</div>
 
 			</div>
-			
+
 		</div>
 	</nav>
 	<div>
@@ -89,7 +89,7 @@
 			<tbody>
 				<tr th:each="player : ${teams}">
 					<td><a class="btn btn-success btn-sm"
-						th:href="@{/add-kkr-to-dream11/{id} (id=${player.id})}">ADD TO
+						th:href="@{'/add-' + ${player.teams.name.toLowerCase().replace(' ', '-') + '-player-to-dream11/' + player.id}}">ADD TO
 							DREAM11</a></td>
 
 					<td th:text="${player.playerName}"></td>
@@ -97,18 +97,16 @@
 					<td th:text="${player.nation}"></td>
 
 					<td><a class="btn btn-primary btn-sm"
-						th:href="@{/edit-kkr-player/{id} (id=${player.id})}">UPDATE</a></td>
+						th:href="@{'/edit-' + ${player.teams.name.toLowerCase().replace(' ', '-') + '-player/' + player.id}}">UPDATE</a>
+					</td>
+
 					<td><a class="btn btn-danger btn-sm"
 						th:href="@{/delete-kkr-player/{id} (id=${player.id})}">DELETE</a>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-	<div class="card-footer text-body-secondary" style="background-color: rgb(49, 49, 161);color:white;">
-		<div class="ap-copy col-100 floatLft" style="padding-bottom: 15px;">
-			<p class="mb-0 w-100 text-center">Copyright © IPL 2024 All Rights Reserved.</p>
-		</div>
-	</div>
+	
 
 </body>
 
